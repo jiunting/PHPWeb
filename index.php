@@ -20,51 +20,36 @@ include('connectionData.txt');
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port)
 or die('Error connecting to MySQL server.');
 
+// query manu_name for select options
 $query = "SELECT manu_name FROM manufact;";
-
 $result = mysqli_query($conn, $query)
 or die(mysqli_error($conn));
 
 
-
+// make select options
 print "<form action='findCustManu.php' method='POST'>";
 print "<select name='manu'>";
 print "<optgroup label='Manufact name'>";
 while($row = mysqli_fetch_array($result, MYSQLI_BOTH))
   {
-   
     print "<option>$row[manu_name]</option>";
   }
 print "</optgroup>";
 print "</select>";
-
 mysqli_free_result($result);
-
 mysqli_close($conn);
-
-
-// print "<input type='text' name='manu' value=$value><br>";
 print "<input type='submit' value='submit' style='margin-left: 0.5em;'>";
-// print "<input type='reset' value='erase'>";
 print "</form>";
-
-
 
 ?>
 
-
 <p>
-
-
 <hr>
-
 <p>
 <a href="index.txt" >Contents</a> of this page.
-
 <p>
 <a href="findCustManu.txt" >Contents</a> of the PHP page that gets called. 
 (And the <a href="connectionData.txt" >connection data</a>)
-
 
 
 </body>
