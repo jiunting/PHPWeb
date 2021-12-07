@@ -5,4 +5,6 @@
 
 https://ix.cs.uoregon.edu/~jiunting/seismic/
 
+![][fig1] 
+
 [fig1]:./Fig1_map.png "data in this DB"
